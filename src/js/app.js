@@ -1,85 +1,31 @@
 (function() {
     var qualities = ['flac', 'm4a', '320', '128'];
+    var log = _.ary(console.log, 1);
 
-    angular.module('csn-downloader', ['ui.router']).controller('MainController', ['csnService', MainController]);
+    angular.module('csn-downloader', ['ui.router']).controller('MainController', ['csnService', '$q', MainController]);
 
-    function MainController(csnService) {
+    function MainController(csnService, $q) {
         var vm = this;
-        vm.modern = true;
-        vm.quality = '320';
-        vm.inProgress = false;
-        vm.link = location.search.substr(6) || 'http://chiasenhac.com/nghe-album/phut-cuoi~che-linh-thanh-tuyen~1042559.html';
-        vm.filePerTime = 1;
+        vm.posts = [];
 
-        vm.extractLink = function(e) {
-            e.preventDefault();
-            vm.inProgress = true;
-            csnService.extractAlbum(vm.link).then(function(links) {
-                console.log(links);
-                vm.links = links;
-                vm.inProgress = false;
-            }, error => {
-                console.log(error);
-            });
-        };
+        vm.link = 'https://graph.facebook.com/aaa/feed?limit=10&access_token=fff';
 
-        vm.linkForQuality = function(song, quality) {
-            quality = vm.quality;
-            if (song[quality]) {
-                song.q = quality;
-                return song[quality];
-            }
-
-            let index = qualities.indexOf(quality);
-            if (index != -1) {
-                for (let i = index, q; i < qualities.length; i++) {
-                    q = qualities[i];
-                    if (song[q]) {
-                        song.q = q;
-                        return song[q];
-                    }
-                }
-            }
-        };
-
-        vm.handleDownload = function(song, index, auto) {
-            let link = song[song.q],
-                state = song.download || (song.download = {});
-            if (state.inProgress && !auto) {
-                state.stop();
-                return;
-            }
-            state.inProgress = true;
-
-            let downloader = csnService.download(link);
-            state.stop = downloader.stop;
-            downloader.promise.then(function downloaded(blob) {
-                    state.inProgress = false;
-                    downloader.userDownload(decodeURIComponent(link.substr(link.lastIndexOf('/') + 1)), blob);
-                    let next = vm.links[index + 1];
-                    next && vm.handleDownload(next, index + 1, true);
-                },
-                function onFailed() {
-                    state.inProgress = false;
-                },
-                function onDownloadProgress(progress) {
-                    state.progress = Math.round(progress * 100);
+        vm.extract = function($event) {
+            $event && $event.preventDefault();
+            $q.resolve($.getJSON(vm.link)).then(j => {
+                j.data.forEach(d => {
+                    d.created = d.created_time;
+                    d.created_time = moment(d.created_time).fromNow();
+                    d.plink =  d.link || ('https://www.facebook.com/groups/PhongTroTpHCM/permalink/' + d.id);
                 });
+               vm.posts.push(...j.data);
+               vm.link = j.paging.next;
+            })
+            .catch(log);
         };
 
-        vm.hasSong = function() {
-            return vm.links && vm.links.length
-        };
-
-        vm.queue = function() {
-            let filePerTime = vm.filePerTime;
-            vm.queueStarted = !vm.queueStarted;
-            vm.links.slice(0, filePerTime).forEach(link => {
-                vm.handleDownload(link);
-            });
-        }
+        vm.next = vm.extract;
     }
-
 
     angular.module('csn-downloader').config(['$stateProvider', '$urlRouterProvider',
         function($stateProvider, $urlRouterProvider) {

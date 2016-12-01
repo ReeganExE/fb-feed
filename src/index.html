@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Chiasenhac Downloader</title>
+    <title>Feeder</title>
     <!-- build:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/bootswatch/index.css">
@@ -14,24 +14,16 @@
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="http://chiasenhac.com" target="_blank" class="navbar-brand">Chiasenhac Downloader</a>
+                <a href="http://chiasenhac.com" target="_blank" class="navbar-brand">Feeder</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a ui-sref="main">Download</a>
-                    </li>
                     <li>
                         <a ui-sref="help">Help</a>
                     </li>
                     <li>
                         <a ui-sref="about">About</a>
                     </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="https://www.google.com/search?q=chiasenhac+louder" target="_blank">Chiasenhac Playlist</a></li>
-                    <li><a href="http://lucdao.com/" target="_blank">lucdao.com</a></li>
-                    <li><a href="http://chiasenhac.com/" target="_blank">chiasenhac.com</a></li>
                 </ul>
             </div>
         </div>
@@ -46,6 +38,9 @@
         </div>
     </div>
     <!-- build:js -->
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="bower_components/bluebird/js/browser/bluebird.min.js"></script>
+    <script type="text/javascript" src="bower_components/lodash.min/index.js"></script>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bower_components/jquery-tmpl/jquery.tmpl.min.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

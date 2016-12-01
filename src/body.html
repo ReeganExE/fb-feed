@@ -1,108 +1,32 @@
 <div>
-    <form ng-submit="main.extractLink($event)" autocomplete="off">
+    <form ng-submit="main.extract($event)" autocomplete="off">
         <div class="form-group has-success">
-            <label class="control-label" for="album">Album:</label>
+            <label class="control-label" for="album">Link:</label>
             <input name="link" type="text" ng-model="main.link" class="form-control" id="album" placeholder="Ex: http://chiasenhac.com/nghe-album/phut-cuoi~che-linh-thanh-tuyen~1042559.html" />
         </div>
         <div class="form-group has-success center">
-            <button ng-disabled="main.inProgress || !main.link" id="btn-go" type="submit" name="btn" class="btn btn-warning" ng-bind="main.inProgress ? 'In progress...' : 'Get link'"></button>
+            <button ng-disabled="main.inProgress || !main.link" id="btn-go" type="submit" name="btn" class="btn btn-success" ng-bind="main.inProgress ? 'In progress...' : 'Get posts'"></button>
         </div>
+
     </form>
-    <div class="form-group has-success">
-        <ul class="nav nav-tabs" id="output-tabs">
-            <li role="presentation" ng-class="{ active: main.modern }"><a ng-click="main.modern = true" for="#cotainer-list" href="#">List</a></li>
-            <li role="presentation" ng-class="{ active: !main.modern }"><a ng-click="main.modern = false" id="direct-links-tab" for="#cotainer-direct-links" href="#">Direct links</a></li>
-        </ul>
-        <div id="cotainer-direct-links" class="tab-contents" ng-hide="main.modern">
-            <label class="control-label" for="links">Acquired direct links:</label>
-            <div>
-                <textarea id="links" ng-bind="main.links | toLink" wrap="off"></textarea>
-            </div>
+
+    <div class="list-group">
+      <div class="well" ng-repeat="post in main.posts">
+        <a target="_blank" href="{{ post.plink }}">
+            <h4 class="list-group-item-heading">{{ post.from.name }}</h4>
+        </a>
+        <div title="{{ post.created }}">{{ post.created_time }}</div>
+
+        <div ng-if="post.picture">
+            <img src="{{ post.picture }}" />
         </div>
-        <div id="cotainer-list" class="tab-contents" ng-show="main.modern">
-            <div class="form-group has-success">
-                <div id="quality-conatainer" class="center">
-                    <label>
-                        <span>128</span>
-                        <input type="radio" ng-model="main.quality" value="128" />
-                    </label>
-                    <label>
-                        <span>320</span>
-                        <input type="radio" checked="" ng-model="main.quality" value="320" />
-                    </label>
-                    <label>
-                        <span>500</span>
-                        <input type="radio" ng-model="main.quality" value="m4a" />
-                    </label>
-                    <label>
-                        <span>Lossless</span>
-                        <input type="radio" ng-model="main.quality" value="flac" />
-                    </label>
-                    <!--                             <button q="128" title="128 Kbps">
-                                <img src="images/9W53PDxu.png" />
-                            </button>
-                            <button class="pressed" q="320" title="320 Kbps">
-                                <img src="images/9W53PDxu.png" />
-                            </button>
-                            <button q="m4a" title="500 Kbps M4A">
-                                <img src="images/9W53PDxu.png" />
-                            </button>
-                            <button q="flac" title="Lossless">
-                                <img src="images/9W53PDxu.png" />
-                            </button> -->
-                </div>
-            </div>
-            <div id="download-option" ng-show="main.hasSong()">
-                <span>Download:</span>
-                <div class="dropdown" style="display: inline-block;">
-                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <span ng-bind="main.filePerTime"></span>
-                        <span>file(s) per time</span>
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a ng-click="main.filePerTime = 1">1 file per times</a></li>
-                        <li><a ng-click="main.filePerTime = 2">2 files per times</a></li>
-                        <li><a ng-click="main.filePerTime = 3">3 files per times</a></li>
-                        <li><a ng-click="main.filePerTime = 4">4 files per times</a></li>
-                        <li><a ng-click="main.filePerTime = 5">5 files per times</a></li>
-                    </ul>
-                </div>
-                <button ng-click="main.queue()" class="btn btn-info" ng-bind="main.queueStarted ? 'Stop' : 'Start'"></button>
-            </div>
-            <div id="title-links">
-                <table class="table" ng-show="main.hasSong()">
-                    <tr>
-                        <th width="50%">Song</th>
-                        <th>Progress</th>
-                        <th></th>
-                    </tr>
-                    <tr ng-repeat="song in main.links">
-                        <td>
-                            <!-- <div> -->
-                            <a ng-href="{{main.linkForQuality(song)}}" class="link q-{{song.q}}" ng-bind="song.title"></a>
-                            <!-- </div> -->
-                        </td>
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="{{song.download.progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{song.download.progress}}%;">
-                                    {{song.download.progress}}%
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <i ng-class="song.download.inProgress ? 'glyphicon glyphicon-stop' : 'glyphicon glyphicon-play'" title="{{ song.download.inProgress ? 'Stop' : 'Download' }}" ng-click="main.handleDownload(song, $index)" />
-                        </td>
-                    </tr>
-                </table>
-                <!--                         <div class="c100 small green" p="0" id="abc">
-                          <span>0%</span>
-                          <div class="slice">
-                            <div class="bar"></div>
-                            <div class="fill"></div>
-                          </div>
-                        </div> -->
-            </div>
-        </div>
+        <br/>
+        <p style="white-space: pre-line;" class="list-group-item-text">{{ post.message }}</p>
+      </div>
     </div>
+
+    <div class="form-group has-success center">
+        <button id="btn-go" ng-click="main.next()" name="btn" class="btn btn-warning" >Next</button>
+    </div>
+
 </div>
