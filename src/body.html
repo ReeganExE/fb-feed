@@ -2,7 +2,11 @@
     <form ng-submit="main.extract($event)" autocomplete="off">
         <div class="form-group has-success">
             <label class="control-label" for="album">Link:</label>
-            <input name="link" type="text" ng-model="main.link" class="form-control" id="album" placeholder="Ex: http://chiasenhac.com/nghe-album/phut-cuoi~che-linh-thanh-tuyen~1042559.html" />
+            <input name="link" type="text" ng-model="main.link" class="form-control" id="album" />
+        </div>
+        <div class="form-group has-success">
+            <label class="control-label" for="album">Token:</label>
+            <input type="text" ng-model="main.token" class="form-control" />
         </div>
         <div class="form-group has-success center">
             <button ng-disabled="main.inProgress || !main.link" id="btn-go" type="submit" name="btn" class="btn btn-success" ng-bind="main.inProgress ? 'In progress...' : 'Get posts'"></button>

@@ -8,23 +8,29 @@
         var vm = this;
         vm.posts = [];
 
-        vm.link = 'https://graph.facebook.com/aaa/feed?limit=10&access_token=fff';
+        vm.link = 'https://graph.facebook.com/129415447250418/feed?limit=10&access_token=';
 
         vm.extract = function($event) {
             $event && $event.preventDefault();
-            $q.resolve($.getJSON(vm.link)).then(j => {
+            vm.get('https://graph.facebook.com/129415447250418/feed?limit=10&access_token=' + vm.token);
+        };
+
+        vm.get = function(link) {
+            $q.resolve($.getJSON(link)).then(j => {
                 j.data.forEach(d => {
                     d.created = d.created_time;
                     d.created_time = moment(d.created_time).fromNow();
                     d.plink =  d.link || ('https://www.facebook.com/groups/PhongTroTpHCM/permalink/' + d.id);
                 });
                vm.posts.push(...j.data);
-               vm.link = j.paging.next;
+               vm.nextPage = j.paging.next;
             })
             .catch(log);
         };
 
-        vm.next = vm.extract;
+        vm.next = function() {
+            vm.get(vm.nextPage);
+        };
     }
 
     angular.module('csn-downloader').config(['$stateProvider', '$urlRouterProvider',
