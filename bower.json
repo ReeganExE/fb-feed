@@ -1,0 +1,35 @@
+{
+  "name": "csn-downloader",
+  "authors": [
+    "ReeganExE"
+  ],
+  "description": "Downloader album at chiasenhac.com",
+  "main": "",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "chiasenhac",
+    "downloader",
+    "chiasenhac.com"
+  ],
+  "license": "MIT",
+  "homepage": "lucdao.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "bootswatch": "https://bootswatch.com/cyborg/bootstrap.min.css",
+    "angular": "~1.4.9",
+    "angular-ui-router": "~0.2.17"
+  },
+  "resolutions": {
+    "jquery": "~2.1.4"
+  }
+}

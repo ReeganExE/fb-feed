@@ -1,0 +1,25 @@
+﻿{
+	"manifest_version" : 2,
+   "name": "facebook",
+   "version": "0.1",
+   "description": "facebook graph.facebook.com",
+
+   "permissions": ["https://graph.facebook.com/*", "https://fonts.googleapis.com/*"],
+
+   "background": {
+      "scripts": [ "js/background.js" ]
+   },
+
+   "browser_action": {
+      "default_icon": {
+         "19": "images/marketing8.png",
+         "38": "images/marketing8.png"
+      },
+      "default_title": "facebook"
+   },
+
+   "icons" : {
+   	"48" : "images/marketing8.png",
+   	"128" : "images/marketing8.png"
+   }
+}
