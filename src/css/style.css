@@ -1,0 +1,182 @@
+.navbar-default {
+  background-color: #1E2227;
+  border: none; }
+
+body {
+  background-image: none; }
+
+.navbar-nav > li > .dropdown-menu {
+  margin-top: 6px; }
+
+#main {
+  margin-top: 62px; }
+  #main input[type="text"] {
+    height: 33px;
+    background-color: white;
+    border-color: rgba(51, 122, 183, 0.3); }
+  #main .panel-body {
+    padding-bottom: 0; }
+  #main textarea {
+    margin: 0px 0px 10px;
+    width: 884px;
+    height: 187px;
+    background-color: #FFFFFF;
+    border: solid 1px #A8AEFF;
+    border-radius: 2px;
+    resize: none;
+    overflow: auto; }
+  #main .highlighted {
+    background: yellow; }
+
+#album:-webkit-autofill {
+  background-color: white !important; }
+
+::-webkit-input-placeholder {
+  font-style: italic;
+  color: white;
+  font-weight: 100; }
+
+:-moz-placeholder {
+  font-style: italic;
+  color: white;
+  font-weight: 100; }
+
+::-moz-placeholder {
+  font-style: italic;
+  color: white;
+  font-weight: 100; }
+
+:-ms-input-placeholder {
+  font-style: italic;
+  color: white;
+  font-weight: 100; }
+
+#title-links td {
+  padding: 0;
+  border: none; }
+
+#title-links .progress {
+  margin: 4px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  max-width: 350px; }
+
+#title-links i {
+  cursor: pointer; }
+
+a[ng-click] {
+  cursor: pointer; }
+
+#help-container, #about-container {
+  margin: 2px 3px 30px; }
+  #help-container h4, #about-container h4 {
+    color: black; }
+  #help-container a:hover, #help-container a:focus, #about-container a:hover, #about-container a:focus {
+    color: #ff8800; }
+  #help-container img, #about-container img {
+    width: 32px;
+    height: 32px;
+    margin: 2px 9px; }
+
+#download-option {
+  text-align: center;
+  margin-bottom: 10px; }
+
+.link {
+  display: inline-block;
+  position: relative;
+  padding: 5px 35px;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+  .link:hover, .link:focus {
+    color: #ff8800; }
+  .link:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 29px;
+    height: 20px;
+    background-color: #4FBAF8;
+    border-radius: 4px;
+    margin: 6px 0;
+    text-align: center;
+    color: white;
+    font-weight: bold; }
+  .link.q-320:before {
+    content: "320";
+    background-color: #4FBAF8; }
+  .link.q-128:before {
+    content: "128";
+    background-color: green; }
+  .link.q-m4a:before {
+    content: "500";
+    background-color: orange; }
+  .link.q-flac:before {
+    content: "Lossless";
+    width: 63px;
+    background-color: red; }
+  .link.q-flac {
+    padding-left: 70px; }
+
+.panel-heading {
+  padding: 0px 15px; }
+
+#quality-conatainer {
+  text-align: center; }
+  #quality-conatainer button {
+    background: none;
+    border: none; }
+    #quality-conatainer button:focus {
+      outline: none; }
+  #quality-conatainer img {
+    width: 35px;
+    height: 32px; }
+  #quality-conatainer button.pressed {
+    border-bottom: solid 4px #33B5E5; }
+  #quality-conatainer label {
+    display: inline-block;
+    margin: 4px; }
+
+#btn-go {
+  width: 144px; }
+
+.center {
+  text-align: center; }
+
+/*http://support.google.com/chrome/?hl=en*/
+::-webkit-scrollbar {
+  height: 10px !important;
+  overflow: visible !important;
+  width: 10px !important; }
+
+::-webkit-scrollbar-thumb {
+  background: -webkit-linear-gradient(left, #c6c6c6 0%, gainsboro 100%) !important;
+  background-clip: padding-box !important;
+  border: 2px solid transparent !important;
+  border-image: initial !important;
+  min-height: 28px !important;
+  padding: 100px 0px 0px !important;
+  /*box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 0px inset, rgba(0, 0, 0, 0.0666667) 0px -1px 0px inset !important;*/ }
+
+/* :window-inactive inspired by cssTricks */
+::-webkit-scrollbar-thumb:hover {
+  background: -webkit-linear-gradient(left, #9e9e9e 0%, #b4b4b4 100%) !important;
+  background-clip: padding-box !important; }
+
+/* :window-inactive inspired by cssTricks */
+::-webkit-scrollbar-thumb:window-inactive {
+  background: -webkit-linear-gradient(left, #3a3a3a 0%, #505050 100%) !important;
+  background-clip: padding-box !important; }
+
+::-webkit-scrollbar-button {
+  height: 0px !important;
+  width: 0px !important; }
+
+::-webkit-scrollbar-track {
+  background-color: #1C1C1F;
+  box-shadow: inset 1px 0px 5px -2px rgba(0, 0, 0, 0.3); }
+
+::-webkit-scrollbar-corner {
+  background: transparent !important; }

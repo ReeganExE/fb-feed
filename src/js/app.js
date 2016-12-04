@@ -8,7 +8,11 @@
         var vm = this;
         vm.posts = [];
 
+        vm.hihi = 'n\u{1EEF}|gh\u{00E9}p|q7|q8|b\u{00EC}nh th\u{1EA1}nh|th\u{1EE7} \u{0111}\u{1EE9}c|q9';
+
         vm.link = 'https://graph.facebook.com/129415447250418/feed?limit=10&access_token=';
+
+        // vm.token = 'EAAQZCw2ZA3yU0BAFZAQTsMFoxdONjoOFO3ArP2aPzw75ZCVL0udZC7fQL3FJYe5Yg301qwzmNTsvcgX6X3cjk3lzJ1qNvuZBwaDIvWWWYrk5o2Kpm9BvZBCjK1XUAvw99xOpDLAjTMvAVGg5ZBqVRtkkXyZCnQlPuiqEZD&expires=5184000';
 
         vm.extract = function($event) {
             $event && $event.preventDefault();
@@ -52,5 +56,13 @@
                     controller: 'MainController',
                     controllerAs: 'main'
                 });
-        }]);
+        }])
+
+        .filter('highlight', function($sce) {
+          return function(text, phrase) {
+            if (phrase && text) text = text.replace(new RegExp('('+phrase+')', 'gi'),
+              '<span class="highlighted">$1</span>')
+            return $sce.trustAsHtml(text)
+          }
+        });
 })();
