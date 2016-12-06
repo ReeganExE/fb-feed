@@ -22,9 +22,10 @@
         vm.get = function(link) {
             $q.resolve($.getJSON(link)).then(j => {
                 j.data.forEach(d => {
+                    let [group, id] = d.id.split('_');
                     d.created = d.created_time;
                     d.created_time = moment(d.created_time).fromNow();
-                    d.plink =  d.link || ('https://www.facebook.com/groups/PhongTroTpHCM/permalink/' + d.id);
+                    d.plink =  d.link || (`https://www.facebook.com/groups/${group}/permalink/${id}`);
                 });
                vm.posts.push(...j.data);
                vm.nextPage = j.paging.next;
