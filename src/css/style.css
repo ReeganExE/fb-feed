@@ -14,8 +14,6 @@ body {
     height: 33px;
     background-color: white;
     border-color: rgba(51, 122, 183, 0.3); }
-  #main .panel-body {
-    padding-bottom: 0; }
   #main textarea {
     margin: 0px 0px 10px;
     width: 884px;
@@ -66,17 +64,6 @@ body {
 
 a[ng-click] {
   cursor: pointer; }
-
-#help-container, #about-container {
-  margin: 2px 3px 30px; }
-  #help-container h4, #about-container h4 {
-    color: black; }
-  #help-container a:hover, #help-container a:focus, #about-container a:hover, #about-container a:focus {
-    color: #ff8800; }
-  #help-container img, #about-container img {
-    width: 32px;
-    height: 32px;
-    margin: 2px 9px; }
 
 #download-option {
   text-align: center;
@@ -177,3 +164,133 @@ a[ng-click] {
 
 ::-webkit-scrollbar-corner {
   background: transparent !important; }
+
+.flat-social {
+  padding: 0; }
+
+.flat-social a {
+  color: #FFF !important;
+  text-decoration: none !important; }
+
+/* Flat Share Buttons */
+.flat-social li {
+  width: auto !important;
+  display: inline-block;
+  list-style: none; }
+
+.flat-social a {
+  padding: 5px 9px;
+  color: #FFF;
+  margin: 0 6px 2px 0;
+  display: inline-block;
+  line-height: 14px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; }
+
+.flat-social a i {
+  margin-right: 3px; }
+
+.flat-social a:hover {
+  background: #444; }
+
+/* Social Icons Widget */
+.social-icons {
+  text-align: center; }
+
+.social-icons a {
+  margin: 2px;
+  position: relative;
+  text-shadow: none;
+  display: inline-block; }
+
+.social-icons-widget .social-icons i:before {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 18px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; }
+
+.social-icons-widget .social-icons a {
+  color: #555 !important; }
+
+#theme-footer .social-icons-widget .social-icons a {
+  color: #999 !important; }
+
+.social-icons-widget .social-icons.social-colored a {
+  color: #FFF !important; }
+
+.social-icons.social-colored .fa-facebook:before,
+.social-facebook,
+.author-social a.social-facebook:hover,
+.arq-lite-facebook a:hover i,
+.arqam-lite-widget-counter.colored .arq-lite-facebook a i {
+  background: #39599f; }
+
+.social-icons.social-colored .fa-twitter:before,
+.social-twitter,
+.author-social a.social-twitter:hover,
+.arq-lite-twitter a:hover i,
+.arqam-lite-widget-counter.colored .arq-lite-twitter a i {
+  background: #45b0e3; }
+
+.social-icons.social-colored .fa-stumbleupon:before,
+.social-stumble,
+.author-social a.social-stumble:hover {
+  background: #eb4924; }
+
+.social-icons.social-colored .fa-google-plus:before,
+.social-google-plus,
+.author-social a.social-google-plus:hover,
+.arq-lite-google a:hover i,
+.arqam-lite-widget-counter.colored .arq-lite-google a i {
+  background: #fa0101; }
+
+.social-icons.social-colored .fa-linkedin:before,
+.social-linkedin,
+.author-social a.social-linkedin:hover {
+  background: #65b7d2; }
+
+.social-icons.social-colored .fa-pinterest:before,
+.social-pinterest,
+.author-social a.social-pinterest:hover {
+  background: #E00707; }
+
+.social-icons.social-colored .fa-youtube:before,
+.social-youtube,
+.author-social a.social-youtube:hover,
+.arq-lite-youtube a:hover i,
+.arqam-lite-widget-counter.colored .arq-lite-youtube a i {
+  background: #E00707; }
+
+.social-github {
+  background: #1f1f1f; }
+
+.social-icons.social-colored .tieicon-instagram:before,
+.social-instagram,
+.author-social a.social-instagram:hover,
+.arq-lite-instagram a:hover i,
+.arqam-lite-widget-counter.colored .arq-lite-instagram a i {
+  background: #517fa4; }
+
+.social-icons.social-colored .fa-behance:before,
+.social-behance,
+.author-social a.social-behance:hover,
+.arq-lite-behance a:hover i,
+.arqam-lite-widget-counter.colored .arq-lite-behance a i {
+  background: #1769ff; }
+
+.social-icons.social-colored .tieicon-flickr:before,
+.social-flickr,
+.author-social a.social-flickr:hover {
+  background: #ff0084; }
+
+.social-site {
+  background: #666; }
+
+@media only screen and (max-width: 730px) {
+  .flat-social a span {
+    display: none; } }
