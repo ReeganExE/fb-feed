@@ -1,9 +1,11 @@
-# CSN-Downloader #
+# Facebook Feeder for Groups #
 
-Download album, playlist from http://chiasenhac.com
+
 
 ### Intallation ###
 
-````sh
-....
-````
+```sh
+npm install  # Install packages
+npm run sass # Complile SCSS
+```
+Go to `chrome://extensions/` and `Load unpacked extension…` from `src` folder.
